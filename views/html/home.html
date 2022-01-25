@@ -12,31 +12,30 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class='d-block p-2 bg-dark'>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a class="nav-link text-white h3" href="/" >Home</a> 
-        <a class="nav-link text-white h3" href="/dashboard">Dashboard</a> 
-        <a class="nav-link text-white h3" href="#">Logout</a>
-        {{else}}
-        <a class="nav-link text-white h3" href="/login">Login</a>
-        <a class="nav-link text-white h3" href="/singup">Sing Up</a>
-        {{/if}}
-      </nav>
+      
+        <nav class='nav p-3 mb-2'>
+            <a class="nav-link text-white h3" href="/" >Home</a> 
+            <a class="nav-link text-white h3" href="/dashboard">Dashboard</a> 
+            <a class="nav-link text-white h3" href="/login">Login</a>
+            <a class="nav-link text-white h3" href="#">Logout</a>
+        </nav>  
+        <h1 class='d-inline p-1 m-5 bg-success text-white rounded'>The Tech Blog</h1>
+        
+
     </header>
+
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
+      <p> Here is the body </p>
+      <p>{{{body}}}</p>
     </main>
+
     <footer>
       
     </footer>
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+  
 </body>
 
 </html>
