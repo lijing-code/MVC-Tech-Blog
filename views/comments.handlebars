@@ -1,0 +1,32 @@
+
+ <div class="card bg-success text-white">
+    <figure class="text-center m-2">
+        <blockquote class="blockquote">
+            <br>
+            <h3>
+                {{{post.name}}}
+            </h3>
+        </blockquote>
+        
+        <figcaption class="blockquote-footer">
+        <p class='text-white'>
+        Posted by {{{post.user.name}}} on {{{format_date post.date_created}}}
+        </p>
+        </figcaption>
+    </figure>
+
+    <form class='m-3 p-2'>
+        <div class="card-body">
+        <p>{{{post.content}}}</p>
+        </div>
+
+        <div class="input-group input-group-lg">
+        <span class="input-group-text">Comment</span>
+        <textarea class="form-control" id='comment' aria-label="With textarea"></textarea>
+        </div>
+        <br>
+        <div class="d-grid gap-2 col-6 mx-auto m-3">
+        <button class="btn btn-warning" id='comment-btn' type="button">Submit</button>
+        </div>
+    </form>
+</div>

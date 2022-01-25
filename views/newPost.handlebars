@@ -1,0 +1,27 @@
+<h1>Your Dashboard</h1>
+      <div class="card bg-success">
+        <br>
+        <h2 class='text-center m-2'>Create New Post</h2>
+
+        <form class='m-3 p-2'>
+          <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+            <input type="text" class="form-control" id='title' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+          </div>
+          <br>
+          <div class="input-group input-group-lg">
+            <span class="input-group-text">Content</span>
+            <textarea class="form-control" id='content' aria-label="With textarea"></textarea>
+          </div>
+          <br>
+          <div class="d-grid gap-2 col-6 mx-auto m-3">
+            <button class="btn btn-warning" id='create-btn' type="button">Create</button>
+          </div>
+        </form>
+      </div>
+      <br>
+      <div class ="d-grid gap-2 col-6 mx-auto">
+        <button type="button" class="btn btn-secondary" href='/post'>+ New Post</button>
+      </div>
+
+<script src="./js/post.js"></script>
