@@ -31,11 +31,9 @@ router.get('/', async (req, res) => {
 
 // make a new post
 // 没login测试不了
-router.get('/post'), async (req, res) => {
+router.get('/newpost'), async (req, res) => {
   try{
-    res.render('newPost', {
-      logged_in: req.session.logged_in 
-    });
+    res.render('newPost');
   } catch (err) {
     res.status(500).json(err);
   } 
