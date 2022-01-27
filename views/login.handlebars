@@ -3,20 +3,23 @@
         <h2 class='text-center m-2'>Login</h2>
 
         <form class='m-3 p-2'>
-          <div class="input-group input-group-lg">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
-            <input type="text" class="form-control" id='username' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+          <div class='login-form'>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+              <input type="text" class="form-control" id='email-login' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <br>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+              <input type="password" class="form-control" id='password-login' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <br>
+            <div class="d-grid gap-2 col-6 mx-auto m-3">
+              <button class="btn btn-warning" id='login-btn' type="submit">Login!</button> 
+            </div>
           </div>
-          <br>
-          <div class="input-group input-group-lg">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
-            <input type="password" class="form-control" id='password' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-          </div>
-          <br>
-          <div class="d-grid gap-2 col-6 mx-auto m-3">
-            <button class="btn btn-warning" id='login-btn' type="button">Login!</button>
-            <a class="btn btn-primary" href="/signup">Sign up instead</a>
-          </div>
+          
+          <a class="btn btn-primary" href="/signup">Sign up instead</a>
         </form>
         
     </div>

@@ -1,23 +1,30 @@
 <div class="card bg-success">
   <h2 class='text-center m-2'>Sign Up</h2>
   <form class='m-3 p-2'>
-    <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
-      <input type="text" class="form-control" id='username' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-    </div>
-    <br>
-    <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
-      <input type="password" class="form-control" id='password' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-    </div>
-    <br>
-    <div class="d-grid gap-2 col-6 mx-auto m-3">
-      <button class="btn btn-warning" type="button" id='signup-btn'>Sign Up!</button>
-      <!-- <br> -->
-      <a class="btn btn-primary" href="/login">Login instead</a>
-    </div>
+    <div class='signup-form'>
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
+        <input type="text" class="form-control" id='username-signup' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <br>
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+        <input type="text" class="form-control" id='email-signup' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <br>
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+        <input type="password" class="form-control" id='password-signup' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+      <br>
+      <div class="d-grid gap-2 col-6 mx-auto m-3">
+        <button class="btn btn-warning" type="submit" id='signup-btn'>Sign Up!</button>
+        <!-- <br> -->
+      </div>
+    </div>  
+    <a class="btn btn-primary" href="/login">Login instead</a>
   </form>
-        
+     
 </div>
 
   <script src="./js/signup.js"></script>
