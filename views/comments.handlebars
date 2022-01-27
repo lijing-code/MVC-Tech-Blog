@@ -3,7 +3,7 @@
     <figure class="text-center m-2">
         <blockquote class="blockquote">
             <br>
-            <h3>
+            <h3 id='post-name-to-comment' value='{{post.id}}'>
                 {{{post.name}}}
             </h3>
         </blockquote>
@@ -15,7 +15,7 @@
         </figcaption>
     </figure>
 
-    <form class='m-3 p-2'>
+    <form class='m-3 p-2 creat-comment'>
         <div class="card-body">
         <p>{{{post.description}}}</p>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <br>
         <div class="d-grid gap-2 col-6 mx-auto m-3">
-        <button class="btn btn-warning" id='comment-btn' type="submit">Add Comment</button>
+        <button class="btn btn-warning" id='comment-btn' type="click">Add Comment</button>
         </div>
     </form>
 </div>
