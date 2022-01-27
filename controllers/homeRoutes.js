@@ -3,6 +3,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all the post for homepage
+// okay
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -29,6 +30,7 @@ router.get('/', async (req, res) => {
 });
 
 // make a new post
+// 没login测试不了
 router.get('/post'), async (req, res) => {
   try{
     res.render('newPost', {
@@ -40,6 +42,7 @@ router.get('/post'), async (req, res) => {
 }
 
 // go to the list of all post for a specific user
+// 没login测试不了
 router.get('/dashboard'), async (req, res) => {
   try {
     const userPostData = await Post.findAll({
@@ -65,7 +68,7 @@ router.get('/dashboard'), async (req, res) => {
     res.status(500).json(err);
   }
 }
-
+// okay
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -74,7 +77,7 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-
+// okay
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
