@@ -1,21 +1,21 @@
 // link each post from the homepage
 const commentFormHandler = async (event) => {
     event.preventDefault();
-    const description = document.querySelector('#comment').value.trim();
-    const id = document.querySelector('#post-name-to-comment').value.trim();
+    const description = document.querySelector('#comment-content').value.trim();
+    const post_id = document.querySelector('#post-id-to-comment').value.trim();
   
-    if (id && description) {
+    if (post_id && description) {
   
-      const response = await fetch('/api/comments', {
+      const response = await fetch('/api/comment', {
         method: 'POST',
-        body: JSON.stringify({ id, description }),
+        body: JSON.stringify({ post_id, description }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed add comment.');
+        alert('Failed.');
       }
     }
   };

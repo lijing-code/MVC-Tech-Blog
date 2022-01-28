@@ -1,22 +1,22 @@
 <h1>Your Dashboard</h1>
 <div class="card bg-success">
 <br>
-<h2 class='text-center m-2'>Edit Post <span id='current-post-id' value='{{currentPost.id}}'>{{currentPost.id}}</span></h2>
+<h2 class='text-center m-2'>Edit Post <span id='current-post-id' value='{{currentPostData.id}}'>{{currentPostData.id}}</span></h2>
 
 <form class='m-3 p-2'>
     <div class="input-group input-group-lg">
     <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
-    <input type="text" class="form-control" id='title' value='{{currentPost.name}}' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    <input type="text" class="form-control" id='updatepost-title' value='{{currentPostData.name}}' aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
     </div>
     <br>
     <div class="input-group input-group-lg">
     <span class="input-group-text">Content</span>
-    <textarea class="form-control" id='content' placeholder='{{currentPost.description}}' type="text" aria-label="With textarea"></textarea>
+    <textarea class="form-control" id='updatepost-content' placeholder='{{currentPostData.description}}' type="text" aria-label="With textarea"></textarea>
     </div>
     <br>
     <div class="d-grid gap-2 col-6 mx-auto m-3">
-    <button class="btn btn-warning" id='update-post' type="click" value='{{currentPost.id}}'>Update Post</button>
-    <button class="btn btn-warning" id='delete-post' type="click" value='{{currentPost.id}}'>Delete</button>
+    <button class="btn btn-warning" id='update-post' type="click" value='{{currentPostData.id}}'>Update Post</button>
+    <button class="btn btn-warning" id='delete-post' type="click" value='{{currentPostData.id}}'>Delete</button>
     </div>
 </form>
 </div>

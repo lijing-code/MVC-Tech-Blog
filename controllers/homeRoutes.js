@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('home', { 
       posts, 
-      loggedIn: req.session.logged_in 
+      logged_in:req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -30,7 +30,6 @@ router.get('/', async (req, res) => {
 });
 
 // make a new post
-// 没login测试不了
 router.get('/newpost'), async (req, res) => {
   try{
     res.render('newPost');
@@ -39,30 +38,20 @@ router.get('/newpost'), async (req, res) => {
   } 
 }
 
-// go to the list of all post for a specific user
-// 没login测试不了
-router.get('/dashboard'), async (req, res) => {
+// got the list of all post for a specific user
+router.get('/dashboard'), withAuth, async (req, res) => {
   try {
-    const userPostData = await Post.findAll({
+    const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id
-      },
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ]
+      }
     });
-    const userPosts = userPostData.map((userPost) =>
-      userPost.get({ plain: true })
-    );
+    const posts = postData.map((post) =>post.get({ plain: true }));
     res.render('dashboard', {
-      userPosts,
-      loggedIn: req.session.logged_in,
+      posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 }
@@ -72,7 +61,7 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
     const updatePostData = await Post.findByPk(req.params.id);
     const currentPostData = updatePostData.get({ plain: true })
     
-    res.render('updatePost', {
+    res.render('updatepost', {
       currentPostData
     });
   } catch (err) {
@@ -81,9 +70,9 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/comments/:id', withAuth, async (req, res) => {
+router.get('/comment/:id', withAuth, async (req, res) => {
   try {
-    const activePostData = await Post.findByPk(req.params.id, {
+    const currentPostData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -91,8 +80,8 @@ router.get('/comments/:id', withAuth, async (req, res) => {
         }
       ]
     });
-    const postData = activePostData.get({ plain: true })
-    const postCommentsData = await Comment.findAll({
+    const postData = currentPostData.get({ plain: true })
+    const commentsDB = await Comment.findAll({
       where: {
         post_id: req.params.id
       },
@@ -103,9 +92,7 @@ router.get('/comments/:id', withAuth, async (req, res) => {
         }
       ]
     });
-    const commentsData = postCommentsData.map((comments) => 
-    comments.get({ plain: true })
-    );
+    const commentsData = commentsDB.map((comments) => comments.get({ plain: true }));
     res.render('comments', {
       postData,
       commentsData
@@ -115,7 +102,7 @@ router.get('/comments/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-// okay
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -124,7 +111,7 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-// okay
+
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");

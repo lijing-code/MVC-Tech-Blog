@@ -1,31 +1,23 @@
 
  <div class="card bg-success text-white">
-    <figure class="text-center m-2">
-        <blockquote class="blockquote">
-            <br>
-            <h3 id='post-name-to-comment' value='{{post.id}}'>
-                {{{post.name}}}
-            </h3>
-        </blockquote>
-        
-        <figcaption class="blockquote-footer">
-        <p class='text-white'>
-        Posted by {{{post.user.name}}} on {{{format_date post.date_created}}}
-        </p>
-        </figcaption>
-    </figure>
 
     <form class='m-3 p-2 creat-comment'>
-        <div class="card-body">
-        <p>{{{post.description}}}</p>
+        <div class="card-body" >
+        <p>{{{postData.description}}}</p>
         </div>
-
+        {{#each commentsData as |comment|}}
+            <div>
+                <p>{{{comment.description}}}</p>
+                <p> - {{{comment.user.name}}}, {{{format_date comment.date_created}}}</p>
+            </div>
+        {{/each}}
         <div class="input-group input-group-lg">
         <span class="input-group-text">Comment</span>
-        <textarea class="form-control" id='comment' aria-label="With textarea"></textarea>
+        <textarea class="form-control" id='comment-content' aria-label="With textarea"></textarea>
+        <input type="hidden" id='post-id-to-comment' value ="{{postData.id}}"/>
         </div>
         <br>
-        <div class="d-grid gap-2 col-6 mx-auto m-3">
+        <div class="d-grid gap-2 col-6 mx-auto m-3 create-comment">
         <button class="btn btn-warning" id='comment-btn' type="click">Add Comment</button>
         </div>
     </form>

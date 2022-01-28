@@ -1,6 +1,6 @@
 const updatePost = async (event) => {
-    const name = document.querySelector('#title').value.trim();
-    const description = document.querySelector('#content').value.trim();
+    const name = document.querySelector('#updatepost-title').value.trim();
+    const description = document.querySelector('#updatepost-content').value.trim();
     const id = document.querySelector('#current-post-id').value.trim();
   
     if (name && description) {
