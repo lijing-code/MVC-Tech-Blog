@@ -1,8 +1,8 @@
 const updatePost = async (event) => {
     const name = document.querySelector('#updatepost-title').value.trim();
     const description = document.querySelector('#updatepost-content').value.trim();
-    const id = document.querySelector('#current-post-id').value.trim();
-  
+    const id = document.querySelector('#post_id').value.trim();
+    console.log(id)
     if (name && description) {
       const response = await fetch('/api/post/'+id, {
         method: 'PUT',
@@ -18,7 +18,7 @@ const updatePost = async (event) => {
   };
 
   const deletePost = async (event) => {
-    const id = document.querySelector('#current-post-id').value.trim();
+    const id = document.querySelector('#post_id').value.trim();
   
     if (id) {
       const response = await fetch('/api/post/'+id, {

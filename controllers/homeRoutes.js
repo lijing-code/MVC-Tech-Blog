@@ -29,24 +29,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-// make a new post
-router.get('/newpost'), async (req, res) => {
-  try{
-    res.render('newPost');
-  } catch (err) {
-    res.status(500).json(err);
-  } 
-}
-
-// got the list of all post for a specific user
-router.get('/dashboard'), withAuth, async (req, res) => {
+// get the list of all posts for a specific user
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findAll({
+    const allPostsData = await Post.findAll({
       where: {
         user_id: req.session.user_id
-      }
+      },
     });
-    const posts = postData.map((post) =>post.get({ plain: true }));
+    const posts = allPostsData.map((post) => post.get({ plain: true }));
     res.render('dashboard', {
       posts,
       logged_in: req.session.logged_in,
@@ -54,7 +45,17 @@ router.get('/dashboard'), withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}
+  
+});
+
+// make a new post
+router.get('/newpost', async (req, res) => {
+  try{
+    res.render('newPost');
+  } catch (err) {
+    res.status(500).json(err);
+  } 
+});
 
 router.get('/updatepost/:id', withAuth, async (req, res) => {
   try {

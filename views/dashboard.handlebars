@@ -4,10 +4,9 @@
 {{#if posts.length}}
     {{#each posts as |post|}}
         <div class='card bg-success p-3'>
-            <div class='comments'>
-                <a class="post-title m-3 p-2 h2 text-white" href="/updatepost/{{post.id}}">{{{post.name}}}</a>
-                <span class='position-absolute bottom-0 end-0 m-1 text-white'>{{{format_date post.date_created}}}</span>
-            </div> 
+            <a class="post-title m-3 p-2 h2 text-white" href="/updatepost/{{post.id}}">{{{post.name}}}</a>
+            <p>{{{post.description}}}</p>
+            <span class='position-absolute bottom-0 end-0 m-1 text-white'>{{{format_date post.date_created}}}</span>
             <br>     
         </div> 
         <br>   
@@ -16,8 +15,7 @@
 
 {{!-- Add new post button --}}
     <div class ="d-grid gap-2 col-6 mx-auto">
-        <button type="button" class="btn btn-secondary" id='new-post' href='/newpost'>+ New Post</button>
+        <a href='/newpost'><button type="button" class="btn btn-secondary">+ New Post</button></a>
     </div>
 
-{{!-- <script src="./js/dashboard.js"></script> --}}
 
