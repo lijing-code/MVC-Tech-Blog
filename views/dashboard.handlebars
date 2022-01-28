@@ -6,7 +6,7 @@
     <div class='card bg-success p-3'>
         <div>
             <a class="post-title m-3 p-2 h2 text-white" href="/updatepost/{{post.id}}">{{{post.name}}}</a>
-            <span class='position-absolute bottom-0 end-0 m-1 text-white'>{{{post.format_date date_created}}}</span>
+            <span class='position-absolute bottom-0 end-0 m-1 text-white'>{{{format_date post.date_created}}}</span>
         </div> 
         <br>     
     </div> 
@@ -19,5 +19,5 @@
         <button type="button" class="btn btn-secondary" href='/post'>+ New Post</button>
     </div>
 
-<script src="./js/dashboard.js"></script>
+{{!-- <script src="./js/dashboard.js"></script> --}}
 

@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const postData = await Post.findAll({
+    const dbPost = await Post.findAll({
       include: [
         {
           model: User,
@@ -17,12 +17,12 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = dbPost.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('home', { 
       posts, 
-      logged_in: req.session.logged_in 
+      loggedIn: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -66,11 +66,60 @@ router.get('/dashboard'), async (req, res) => {
     res.status(500).json(err);
   }
 }
+
+router.get('/updatepost/:id', withAuth, async (req, res) => {
+  try {
+    const updatePostData = await Post.findByPk(req.params.id);
+    const currentPostData = updatePostData.get({ plain: true })
+    
+    res.render('updatePost', {
+      currentPostData
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/comments/:id', withAuth, async (req, res) => {
+  try {
+    const activePostData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        }
+      ]
+    });
+    const postData = activePostData.get({ plain: true })
+    const postCommentsData = await Comment.findAll({
+      where: {
+        post_id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        }
+      ]
+    });
+    const commentsData = postCommentsData.map((comments) => 
+    comments.get({ plain: true })
+    );
+    res.render('comments', {
+      postData,
+      commentsData
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 // okay
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
   res.render('login');
@@ -78,7 +127,7 @@ router.get('/login', (req, res) => {
 // okay
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
   res.render('signup');
