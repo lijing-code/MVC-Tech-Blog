@@ -3,8 +3,6 @@
 ![MIT](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&style=plastic&logo=appveyor)
   ---
   ## Description
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
-
     This project is about building a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. 
     The project The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
     This Tech-Blog is completed from scratch and deployed to Heroku.
