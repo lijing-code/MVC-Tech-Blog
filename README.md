@@ -33,7 +33,9 @@
   * You can now access the Application
 
   ## Usage
-
+<img width="1189" alt="Screen Shot 2022-01-28 at 7 06 24 PM" src="https://user-images.githubusercontent.com/68092036/151637896-3b9c2f95-a12c-4e9f-9a6b-98e13ab1dd05.png">
+<img width="1186" alt="Screen Shot 2022-01-28 at 7 06 37 PM" src="https://user-images.githubusercontent.com/68092036/151637905-b46428d5-df28-479c-9c8a-2c475a40dfae.png">
+<img width="1188" alt="Screen Shot 2022-01-28 at 7 07 23 PM" src="https://user-images.githubusercontent.com/68092036/151637911-8cde625c-2b0c-4cb1-8e31-a7ce892514e7.png">
 
    * Heroku Deploy:
     
